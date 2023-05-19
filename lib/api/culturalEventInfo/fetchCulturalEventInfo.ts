@@ -6,7 +6,7 @@ const fetchCulturalEventInfo = async (params?: ApiIn) => {
   const res = await axios.get<ApiCulturalEventInfoOut>(
     `${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_API_KEY}/json/culturalEventInfo/${
       params?.startIndex || 1
-    }/${params?.endIndex || 50}/`,
+    }/${params?.endIndex || 50}/${params?.codeName || ''}/${params?.title || ''}`,
   )
 
   return res.data.culturalEventInfo.row
